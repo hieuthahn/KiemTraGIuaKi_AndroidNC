@@ -79,9 +79,12 @@
         android:id="@+id/txtTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="05:00"
-        tools:layout_editor_absoluteX="176dp"
-        tools:layout_editor_absoluteY="481dp" />
+        android:text="00:00"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.685" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

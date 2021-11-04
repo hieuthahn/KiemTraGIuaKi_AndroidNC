@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnSelect, btnPause;
     static  Button btnPlay;
-    TextView txtNumber,txtName;
+    TextView txtNumber,txtName, txtTime;
     public static Song currentSong;
     public static MediaPlayer  mediaPlayer  = new MediaPlayer();;
     public  static List<Song> listSong = new ArrayList<>();
@@ -33,6 +33,20 @@ public class MainActivity extends AppCompatActivity {
         currentSong = listSong.get(0);
         setViews();
         setUp();
+
+        txtTime = findViewById(R.id.txtTime);
+    }
+
+    public String createTimerLabel (int duration) {
+        String timerLabel = "";
+        int min = duration / 1000 / 60;
+        int sec = duration / 1000 % 60;
+        timerLabel += min + ":";
+
+        if (sec < 10) timerLabel += "0";
+        timerLabel += sec;
+
+        return timerLabel;
     }
 
     private void setUp() {
@@ -63,12 +77,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                     mediaPlayer.start();
                 }
-//                try {
-//                    mediaPlayer.prepare();
-
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
+                String totTime = createTimerLabel(mediaPlayer.getDuration());
+                txtTime.setText(totTime);
 
             }
         });
